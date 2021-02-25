@@ -45,7 +45,8 @@ add_library(
 )
 
 include_directories (
-    src/main/cpplibs/openssl/include/
+    #src/main/cpplibs/openssl/include/
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/main/cpplibs/openssl/build/${CMAKE_ANDROID_ARCH_ABI}/include
     src/main/cpplibs/SimpleJSON/src/
 )
 
@@ -56,7 +57,8 @@ add_library(
 )
 set_target_properties(
     openssl-lib
-    PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/src/main/cpplibs/openssl/libssl.a
+    #PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/src/main/cpplibs/openssl/libssl.a
+    PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/src/main/cpplibs/openssl/build/${CMAKE_ANDROID_ARCH_ABI}/lib/libssl.a
 )
 
 add_library(
@@ -66,7 +68,8 @@ add_library(
 )
 set_target_properties(
     opensslcrypto-lib
-    PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/src/main/cpplibs/openssl/libcrypto.a
+    #PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/src/main/cpplibs/openssl/libcrypto.a
+    PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/src/main/cpplibs/openssl/build/${CMAKE_ANDROID_ARCH_ABI}/lib/libcrypto.a
 )
 
 # Searches for a specified prebuilt library and stores the path as a
